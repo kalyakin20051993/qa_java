@@ -39,9 +39,8 @@ class ParameterizedTests {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 3, 5})
     void getFelineKittensShouldReturnValue(int kittensCount) {
-        Mockito.when(feline.getKittens()).thenReturn(kittensCount);
+        Feline feline = new Feline();
 
-        assertEquals(kittensCount, feline.getKittens());
-        Mockito.verify(feline).getKittens();
+        assertEquals(kittensCount, feline.getKittens(kittensCount));
     }
 }
